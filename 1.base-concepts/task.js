@@ -1,24 +1,24 @@
 "use strict"
 function solveEquation(a, b, c) {
-  let arr = [];
-  let D = b**2-4*a*c;
+  let equationСoefficients = [];
+  let discriminant = b**2-4*a*c;
  
-  if (D > 0) {
-    let x1 = (-b + Math.sqrt(D)) / (2 * a);
-    let x2 = (-b - Math.sqrt(D)) / (2 * a);
-    arr.push(x1, x2);
+  if (discriminant > 0) {
+    let rootEquation1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+    let rootEquation2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+    equationСoefficients.push(rootEquation1, rootEquation2);
     console.log(`Аргументы: a = ${a}, b = ${b}, c = ${c}`);
-    console.log(`Корни уравнения: x1 = ${x1}, x2 = ${x2}`);
-} else if (D === 0) {
-    let x1 = -b / (2 * a);
-    arr.push(x1);
+    console.log(`Корни уравнения: x1 = ${rootEquation1}, x2 = ${rootEquation2}`);
+} else if (discriminant === 0) {
+    let rootEquation1 = -b / (2 * a);
+    equationСoefficients.push(rootEquation1);
     console.log(`Аргументы: a = ${a}, b = ${b}, c = ${c}`);
-    console.log(`Корень уравнения: x1 = ${x1}`);
+    console.log(`Корень уравнения: x1 = ${rootEquation1}`);
 } else {
     console.log(`Аргументы: a = ${a}, b = ${b}, c = ${c}`);
     console.log(`Квадратное уравнение не имеет корней!!!`);
-     return arr;
   }
+  return equationСoefficients;
 }
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
@@ -28,10 +28,9 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
   let monthPayment = S * (P + P / (Math.pow(1 + P, n) - 1)); 
   let totalAmount = monthPayment * n;
 
-  console.log(totalAmount.toFixed(2));
+  console.log(+totalAmount.toFixed(2));
   
-  return totalAmount.toFixed(2);
- 
-}
+  return (+totalAmount.toFixed(2));
+ }
 
-calculateTotalMortgage(10, 1000, 20000, 24);
+calculateTotalMortgage(15, 0, 10000, 36);
