@@ -2,9 +2,7 @@
      try {
       return parseCount(value); 
     } catch (error) {
-      return {
-        error: "Невалидное значение"
-      };
+      return error;
     }
   }
   
